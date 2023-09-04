@@ -1,11 +1,7 @@
   .virtual-keyboard {
     text-align: center;
     margin: 5px;
-    align-items: center; 
-    justify-content: center;
-    height: 50vh;
-    
-  }
+   }
   
   .keyboard {
     display: flex;
