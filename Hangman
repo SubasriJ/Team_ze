@@ -1,0 +1,73 @@
+import React, { useState, useEffect } from 'react';
+import KeyboardFunction from './KeyboardFunction';
+
+const words = ['hangman', 'javascript', 'react', 'vite', 'programming'];
+const maxWrongAttempts = 6;
+
+const HangmanGame = () => {
+  const [selectedWord, setSelectedWord] = useState('');
+  const [guessedWord, setGuessedWord] = useState('');
+  const [wrongAttempts, setWrongAttempts] = useState(0);
+
+  useEffect(() => {
+    const randomIndex = Math.floor(Math.random() * words.length);
+    setSelectedWord(words[randomIndex]);
+  }, []);
+
+  useEffect(() => {
+    let newGuessedWord = '';
+    for (const char of selectedWord) {
+      if (guessedWord.includes(char)) {
+        newGuessedWord += char;
+      } else {
+        newGuessedWord += '_';
+      }
+    }
+    setGuessedWord(newGuessedWord);
+
+    if (wrongAttempts === maxWrongAttempts) {
+      alert('You lost! The word was: ' + selectedWord);
+      resetGame();
+    } else if (newGuessedWord === selectedWord) {
+      alert('Congratulations! You guessed the word: ' + selectedWord);
+      resetGame();
+    }
+  }, [selectedWord, guessedWord, wrongAttempts]);
+
+  const handleGuess = (letter) => {
+    if (selectedWord.includes(letter)) {
+      // Correct guess
+      setGuessedWord(
+        guessedWord
+          .split('')
+          .map((char, index) =>
+            selectedWord[index] === letter ? letter : char
+          )
+          .join('')
+      );
+    } else {
+      // Incorrect guess
+      setWrongAttempts(wrongAttempts + 1);
+    }
+  };
+
+  const resetGame = () => {
+    const randomIndex = Math.floor(Math.random() * words.length);
+    setSelectedWord(words[randomIndex]);
+    setGuessedWord('');
+    setWrongAttempts(0);
+  };
+
+  return (
+    <div>
+      <h1>Hangman Game</h1>
+      <p>Guess the word:</p>
+      <p>{guessedWord}</p>
+      <p>Wrong Attempts: {wrongAttempts}</p>
+      <button onClick={resetGame}>New Game</button>
+      <KeyboardFunction onKeyPress={handleGuess} />
+    </div>
+  );
+};
+
+export default HangmanGame;
