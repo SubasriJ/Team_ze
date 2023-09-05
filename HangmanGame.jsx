@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import KeyboardFunction from './KeyboardFunction';
-import './HangmanGame.css'; // Import the CSS file for styling
+import './HangmanGame.css'; 
 
 const words = [
   { word: 'hangman', clue: 'A word-guessing game' },
@@ -9,7 +9,7 @@ const words = [
   { word: 'vite', clue: 'A fast build tool for modern web development' },
   { word: 'programming', clue: 'The act of writing computer programs' },
 ];
-const maxWrongAttempts = 6;
+const maxWrongAttempts = 7;
 
 const hangmanStages = [
   `
