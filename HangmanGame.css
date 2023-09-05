@@ -1,0 +1,32 @@
+/* HangmanGame.css */
+
+.game-container {
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.game-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.word-display {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.wrong-attempts {
+    font-size: 1.2rem;
+    margin-top: 20px;
+}
+
+.new-game-button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background: skyblue;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    cursor: pointer;
+}
