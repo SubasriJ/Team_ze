@@ -1,0 +1,9 @@
+.hangman-image {
+    font-family: monospace;
+    font-size: 24px;
+}
+
+.word-clue {
+    font-weight: bold;
+    margin-top: 20px;
+}
