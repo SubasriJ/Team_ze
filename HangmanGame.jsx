@@ -9,7 +9,7 @@ const words = [
 
 ];
 
-const maxWrongAttempts = 6;
+const maxWrongAttempts = 7;
 
 const HangmanGame = () => {
   const [selectedWordObj, setSelectedWordObj] = useState({});
